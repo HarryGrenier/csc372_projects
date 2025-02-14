@@ -69,7 +69,7 @@ body {
 
 .hero1 {
     position: relative;
-    background: url('../Images/foundation8.png') center/cover no-repeat;
+    background: url('../Images/gallery/foundation8.png') center/cover no-repeat;
     height: 400px;
     display: flex;
     align-items: center;

@@ -29,7 +29,6 @@ function loadHTML(filePath) {
            let images = document.querySelectorAll("img");
            images.forEach(img => {
                img.addEventListener("click", function() {
-                   images.forEach(i => i.style.opacity = "0.5"); // Reset all images
                    this.style.opacity = "1"; // Set opacity of the clicked image
                });
            });

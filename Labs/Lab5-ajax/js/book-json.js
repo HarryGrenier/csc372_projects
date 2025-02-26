@@ -37,18 +37,18 @@ window.onload = function () {
     document.getElementById("don-quixote-img").addEventListener("click", function () {
         setAllImagesOpacity(0.5);
         this.style.opacity = 1;
-        loadBookDetails("../data/books.json", 0);
+        loadBookDetails("../data/book-data.json", 0);
     });
 
     document.getElementById("two-cities-img").addEventListener("click", function () {
         setAllImagesOpacity(0.5);
         this.style.opacity = 1;
-        loadBookDetails("../data/books.json", 1);
+        loadBookDetails("../data/book-data.json", 1);
     });
 
     document.getElementById("lotr-img").addEventListener("click", function () {
         setAllImagesOpacity(0.5);
         this.style.opacity = 1;
-        loadBookDetails("../data/books.json", 2);
+        loadBookDetails("../data/book-data.json", 2);
     });
 };

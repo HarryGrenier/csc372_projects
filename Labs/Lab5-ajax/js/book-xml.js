@@ -1,60 +1,118 @@
-// Function to change the opacity of all images to 0.5
-function changeImageOpacity() {
-    const images = document.querySelectorAll('img');
-    images.forEach(image => {
-        image.style.opacity = '0.5';
+// Function to dim all images to opacity 0.5
+function dimImages() {
+    let images = document.querySelectorAll("img");
+    images.forEach(img => {
+        img.style.opacity = "0.5"; // Set all images to dimmed
     });
-}
-
-// Function to trigger Ajax request to load data from XML file
-function loadXMLData(filePath, index) {
-    const xhr = new XMLHttpRequest();
-    const detailsDiv = document.getElementById('details');
-    detailsDiv.innerHTML = '';
-
+ }
+ 
+ 
+ // Call dimImages() on page load
+ window.onload = function() {
+    dimImages();
+ };
+ 
+ 
+ document.addEventListener("DOMContentLoaded", function() {
+    let bookImage = document.getElementById("don-quixote-img");
+ 
+ 
+    if (bookImage) {
+        bookImage.addEventListener("click", function() {
+            loadXML("../data/book-data.xml", 0);
+        });
+    }
+ });
+ 
+ 
+ document.addEventListener("DOMContentLoaded", function() {
+    let bookImage = document.getElementById("two-cities-img");
+ 
+ 
+    if (bookImage) {
+        bookImage.addEventListener("click", function() {
+            loadXML("../data/book-data.xml", 1);
+        });
+    }
+ });
+ 
+ 
+ document.addEventListener("DOMContentLoaded", function() {
+    let bookImage = document.getElementById("lotr-img");
+ 
+ 
+    if (bookImage) {
+        bookImage.addEventListener("click", function() {
+            loadXML("../data/book-data.xml", 2);
+        });
+    }
+ });
+ 
+ 
+ function loadXML(filePath, index) {
+    let xhr = new XMLHttpRequest();
+ 
+ 
+    console.log("Loading XML file:", filePath);
+ 
+ 
     xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            const xmlDoc = xhr.responseXML;
-            const bookElements = xmlDoc.getElementsByTagName('book');
-            if (bookElements.length > index) {
-                const book = bookElements[index];
-                const title = book.getElementsByTagName('title')[0].textContent;
-                const author = book.getElementsByTagName('author')[0].textContent;
-                const description = book.getElementsByTagName('description')[0].textContent;
-
-                const titleElement = document.createElement('h2');
-                titleElement.textContent = title;
-                const authorElement = document.createElement('p');
-                authorElement.textContent = `Author: ${author}`;
-                const descriptionElement = document.createElement('p');
-                descriptionElement.textContent = description;
-
-                detailsDiv.appendChild(titleElement);
-                detailsDiv.appendChild(authorElement);
-                detailsDiv.appendChild(descriptionElement);
+        if (xhr.readyState === 4) { // Request complete
+            if (xhr.status === 200) { // Success
+                let xmlDoc = xhr.responseXML;
+                console.log(xmlDoc);
+ 
+ 
+                if (xmlDoc) {
+                    let books = xmlDoc.getElementsByTagName("book");
+                    let detailsDiv = document.getElementById("details");
+                    detailsDiv.innerHTML = ""; // Clear previous content
+ 
+ 
+                    if (index >= 0 && index < books.length) {
+                        let book = books[index]; // Get the specific book entry
+ 
+ 
+                        // Extract data from the XML
+                        let author = book.getElementsByTagName("author")[0]?.textContent || "Unknown Author";
+                        let copiesSold = book.getElementsByTagName("sold")[0]?.textContent || "N/A";
+                        let description = book.getElementsByTagName("description")[0]?.textContent || "No description available.";
+ 
+ 
+                        // Create formatted HTML structure
+                        detailsDiv.innerHTML = `
+                            <p><strong>Author:</strong> ${author}</p>
+                            <p><strong>Copies Sold:</strong> ${copiesSold}</p>
+                            <p>${description}</p>
+                        `;
+ 
+ 
+                        // Reset opacity for all image
+                        dimImages();
+ 
+ 
+                        // Highlight the clicked image
+                        let images = document.querySelectorAll("img");
+                        images[index].style.opacity = "1";
+ 
+ 
+                    } else {
+                        console.error("Index out of range. Available books: " + books.length);
+                        detailsDiv.innerHTML = "<p>Invalid index. No data available.</p>";
+                    }
+                } else {
+                    console.error("Failed to parse XML.");
+                }
+            } else {
+                console.error("Error loading file:", xhr.status, xhr.statusText);
             }
         }
     };
-
-    xhr.open('GET', filePath, true);
+ 
+ 
+    xhr.open("GET", filePath, true);
     xhr.send();
-}
-
-// Assign event listeners to images
-document.getElementById('don-quixote').addEventListener('click', function() {
-    loadXMLData('../data/bookdata.xml', 0);
-    changeImageOpacity();
-    this.style.opacity = '1';
-});
-
-document.getElementById('a-tale-of-two-cities').addEventListener('click', function() {
-    loadXMLData('../data/bookdata.xml', 1);
-    changeImageOpacity();
-    this.style.opacity = '1';
-});
-
-document.getElementById('the-lord-of-the-rings').addEventListener('click', function() {
-    loadXMLData('../data/bookdata.xml', 2);
-    changeImageOpacity();
-    this.style.opacity = '1';
-});
+ }
+ 
+ 
+ 

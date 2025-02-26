@@ -1,40 +1,43 @@
-// Function to change the opacity of all images to 0.5
-function changeImageOpacity() {
-    const images = document.querySelectorAll('img');
-    images.forEach(image => {
-        image.style.opacity = '0.5';
-    });
-}
+//SET OPACITY TO 0.5
 
-// Function to load HTML data via Ajax
-function loadHtmlData(filePath) {
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', filePath, true);
-    xhr.onload = function() {
-        if (xhr.status === 200) {
-            document.getElementById('details').innerHTML = xhr.responseText;
+
+function dimImages() {
+    let images = document.querySelectorAll("img");
+    images.forEach(img => {
+        img.style.opacity = "0.5";
+    });
+ }
+ 
+ 
+ // Call the function to apply the effect
+ dimImages();
+ 
+ 
+ //LOAD HTML FILE
+ 
+ 
+ function loadHTML(filePath) {
+    // Create an XMLHttpRequest object
+    let xhr = new XMLHttpRequest();
+ 
+ 
+    // Define what happens when the response is loaded
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) { // Request is complete
+            if (xhr.status === 200) { // Success
+                document.getElementById("details").innerHTML = xhr.responseText;
+            } else {
+                console.error("Error loading file:", xhr.status, xhr.statusText);
+            }
         }
     };
+ 
+ 
+    // Prepare the GET request
+    xhr.open("GET", filePath, true);
+ 
+ 
+    // Send the request
     xhr.send();
-}
-
-// Event listener for "Don Quixote" image
-document.getElementById('don-quixote').addEventListener('click', function() {
-    loadHtmlData('../data/cervantes-data.html');
-    changeImageOpacity();
-    this.style.opacity = '1';
-});
-
-// Event listener for "A Tale of Two Cities" image
-document.getElementById('a-tale-of-two-cities').addEventListener('click', function() {
-    loadHtmlData('../data/dickens-data.html');
-    changeImageOpacity();
-    this.style.opacity = '1';
-});
-
-// Event listener for "The Lord of the Rings" image
-document.getElementById('the-lord-of-the-rings').addEventListener('click', function() {
-    loadHtmlData('../data/tolkien-data.html');
-    changeImageOpacity();
-    this.style.opacity = '1';
-});
+ }
+ 

@@ -19,11 +19,8 @@ function dimImages() {
     let xhr = new XMLHttpRequest();
  
  
-    console.log(clickedImg);
- 
- 
     // Define what happens when the response is loaded
-    xhr.onreadystatechange = function() {
+    xhr.onload = function() {
         if (xhr.readyState === 4) { // Request is complete
             if (xhr.status === 200) { // Success
                 document.getElementById("details").innerHTML = xhr.responseText;
@@ -50,3 +47,20 @@ function dimImages() {
     xhr.send();
  }
  
+ document.getElementById('don-quixote').addEventListener('click', function() {
+    loadHTML('../data/cervantes-data.html', this);
+    changeImageOpacity();
+    this.style.opacity = '1';
+});
+
+document.getElementById('a-tale-of-two-cities').addEventListener('click', function() {
+    loadHTML('../data/dickens-data.html', this);
+    changeImageOpacity();
+    this.style.opacity = '1';
+});
+
+document.getElementById('the-lord-of-the-rings').addEventListener('click', function() {
+    loadHTML('../data/tolkien-data.html', this);
+    changeImageOpacity();
+    this.style.opacity = '1';
+});

@@ -47,19 +47,19 @@ function dimImages() {
     xhr.send();
  }
  
- document.getElementById('don-quixote').addEventListener('click', function() {
+ document.getElementById('don-quixote-img').addEventListener('click', function() {
     loadHTML('../data/cervantes-data.html', this);
     changeImageOpacity();
     this.style.opacity = '1';
 });
 
-document.getElementById('a-tale-of-two-cities').addEventListener('click', function() {
+document.getElementById('two-cities-img').addEventListener('click', function() {
     loadHTML('../data/dickens-data.html', this);
     changeImageOpacity();
     this.style.opacity = '1';
 });
 
-document.getElementById('the-lord-of-the-rings').addEventListener('click', function() {
+document.getElementById('lotr-img').addEventListener('click', function() {
     loadHTML('../data/tolkien-data.html', this);
     changeImageOpacity();
     this.style.opacity = '1';

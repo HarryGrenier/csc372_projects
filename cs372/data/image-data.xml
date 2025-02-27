@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gallery>
+    <image>
+        <src>../Images/gallery/foundation1.jpeg</src>
+        <alt>Foundation Work 1</alt>
+    </image>
+    <image>
+        <src>../Images/gallery/foundation2.jpeg</src>
+        <alt>Foundation Work 2</alt>
+    </image>
+    <image>
+        <src>../Images/gallery/foundation3.jpeg</src>
+        <alt>Foundation Work 3</alt>
+    </image>
+    <image>
+        <src>../Images/gallery/foundation4.jpeg</src>
+        <alt>Foundation Work 4</alt>
+    </image>
+    <image>
+        <src>../Images/gallery/foundation5.jpeg</src>
+        <alt>Foundation Work 5</alt>
+    </image>
+    <image>
+        <src>../Images/gallery/foundation6.jpeg</src>
+        <alt>Foundation Work 6</alt>
+    </image>
+    <image>
+        <src>../Images/gallery/foundation7.jpeg</src>
+        <alt>Foundation Work 7</alt>
+    </image>
+    <image>
+        <src>../Images/gallery/foundation8.png</src>
+        <alt>Foundation Work 8</alt>
+    </image>
+</gallery>

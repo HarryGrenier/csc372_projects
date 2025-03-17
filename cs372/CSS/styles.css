@@ -79,6 +79,10 @@ body {
     padding: 50px;
 }
 
+.hero1 h1, .hero1 p {
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7); /* Adds a dark shadow */
+}
+
 /* Dark Overlay to Improve Readability */
 .hero-overlay {
     position: absolute;

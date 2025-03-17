@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const apiKey = "bb37a7808a56bb89cee8eeb8428fcd4e"; // Your API Key
+    const apiKey = "bb37a7808a56bb89cee8eeb8428fcd4e";
     const city = "West Kingston"; // City
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
 
@@ -9,10 +9,10 @@ document.addEventListener("DOMContentLoaded", function () {
             const weatherContainer = document.getElementById("weather-container");
 
             if (data.cod === 200) {
-                const temperature = data.main.temp; // Temperature in Fahrenheit
-                const description = data.weather[0].description; // Weather condition
-                const weatherMain = data.weather[0].main.toLowerCase(); // "Rain", "Clear", "Clouds", etc.
-                const icon = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`; // Weather icon
+                const temperature = data.main.temp;
+                const description = data.weather[0].description;
+                const weatherMain = data.weather[0].main.toLowerCase();
+                const icon = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
                 
                 let workMessage = `<p><strong>Temperature:</strong> ${temperature}°F</p>
                                    <p><strong>Condition:</strong> ${description.charAt(0).toUpperCase() + description.slice(1)}</p>

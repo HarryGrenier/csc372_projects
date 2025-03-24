@@ -1,0 +1,22 @@
+{
+    "contacts": [
+        {
+            "name": "Brendan Spiewak",
+            "role": "Site Manager",
+            "phone": "401-569-1008",
+            "email": "brendan@coastalconcrete.com"
+        },
+        {
+            "name": "Michael Spiewak",
+            "role": "Project Manager & Schedule Manager",
+            "phone": "401-569-1006",
+            "email": "michael@coastalconcrete.com"
+        },
+        {
+            "name": "Richard Spiewak",
+            "role": "Founder & Project Estimator",
+            "phone": "401-255-2133",
+            "email": "richard@coastalconcrete.com"
+        }
+    ]
+}

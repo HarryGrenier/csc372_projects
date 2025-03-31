@@ -1,0 +1,19 @@
+{
+  "name": "mynodesite",
+  "version": "1.0.0",
+  "description": "costal concrete",
+  "license": "ISC",
+  "author": "harry",
+  "type": "commonjs",
+  "main": "handlebarsServer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express-handlebars": "^8.0.1"
+  },
+  "engines": {
+     "node": ">=v16"
+  }
+
+}

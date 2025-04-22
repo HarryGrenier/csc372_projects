@@ -49,6 +49,7 @@ if (isset($_GET['logout'])) {
 
 <body>
 
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.php">
@@ -63,6 +64,13 @@ if (isset($_GET['logout'])) {
                 <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
                 <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
                 <li class="nav-item"><a class="nav-link active" href="contact.php">Contact</a></li>
+
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <li class="nav-item"><a class="nav-link" href="dashboard.php">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link text-danger" href="logout.php">Logout</a></li>
+                <?php else: ?>
+                    <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
+                <?php endif; ?>
             </ul>
         </div>
     </div>
@@ -113,7 +121,7 @@ if (isset($_GET['logout'])) {
             <h3 class="mb-4">Send Us a Message</h3>
 
             <?php if (isset($_COOKIE['visitorName'])): ?>
-                <div class="alert alert-info">👋 Welcome back, <strong><?= htmlspecialchars($_COOKIE['visitorName']) ?></strong>!</div>
+                <div class="alert alert-info">Welcome back, <strong><?= htmlspecialchars($_COOKIE['visitorName']) ?></strong>!</div>
             <?php endif; ?>
 
             <?php if (isset($_SESSION['selectedService'])): ?>

@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $form_data['service'] = $_POST['service'] ?? '';
 
     if (!is_valid_text($form_data['name'])) {
-        $errors['name'] = 'Name must be between 2 and 50 characters.';
+        $errors['name'] = 'Name must be between 2 and 50 characters (Not Numbers).';
     }
     if (!is_valid_number($form_data['age'])) {
         $errors['age'] = 'Please enter a valid age between 18 and 100.';

@@ -1,8 +1,9 @@
 <?php
 // Check if a text input is between a min and max character count
 function is_valid_text($text, $min = 2, $max = 50) {
-    $length = strlen(trim($text));
-    return ($length >= $min && $length <= $max);
+    $text = trim($text);
+    $length = strlen($text);
+    return ($length >= $min && $length <= $max && preg_match("/^[a-zA-Z\s'-]+$/", $text));
 }
 
 // Check if a number input is a number and within a range
